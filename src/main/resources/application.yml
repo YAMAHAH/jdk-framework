@@ -1,0 +1,33 @@
+spring:
+  profiles:
+    active: a
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/yii2basic?useSSL=false
+      username: root
+      password: 99B3AD6E
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+      naming:
+        physical-strategy : org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  devtools:
+      restart:
+        #热部署生效
+        enabled: true
+         #设置重启的目录
+        #additional-paths: src/main/java
+        #classpath目录下的WEB-INF文件夹内容修改不重启
+        exclude: WEB-INF/**
+cors:
+  allowedOrigins: "*"
+  allowedMethods: GET,POST,DELETE,PUT,OPTIONS
+  allowedHeaders: Origin,X-Requested-With,Content-Type,Accept,Accept-Encoding,Accept-Language,Host,Referer,Connection,User-Agent,Authorization
+
+jwt:
+  header: Authorization
+  secret: mySecret
+  expiration: 7200
+  issuer: IATA
+  authenticationPath: /auth
